@@ -249,7 +249,11 @@ open class DKImagePickerControllerBaseUIDelegate: NSObject, DKImagePickerControl
     }
 
     open func imagePickerControllerCollectionViewBackgroundColor() -> UIColor {
-        return UIColor.white
+        if #available(iOS 13.0, *) {
+            return .systemBackground
+        } else {
+            return .white
+        }
     }
 
     open func imagePickerControllerCollectionImageCell() -> DKAssetGroupDetailBaseCell.Type {
